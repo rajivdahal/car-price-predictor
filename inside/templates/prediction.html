@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Prediction page</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+  @media only screen and (max-width: 600px) {
+    body{
+      border: 2px solid red;
+    }
+  #header{
+   width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+ 
+
+}
+#header .nav-bar{
+  width: 100%;
+  height: 40px;
+  font-size: 4px;
+   position: absolute;
+
+
+}
+#header .nav-bar .menu ul{
+  width: 100%;
+  height: 100%;
+   position: absolute;
+   bottom: 0px;
+   top: 20px;
+   margin-left: 20px!important;
+  
+
+}
+#header .nav-bar .menu ul li{
+  padding-top: 10px!important;
+
+}
+
+#header .nav-bar .menu ul li a{
+  font-size: 14px !important;
+
+ 
+}
+#header .nav-bar .menu ul li span{
+  display: none;
+}
+.bold_text_upper{ font-size: 17px!important; position: absolute; top: 25%!important; left: 5%!important; color: red!important; }
+.bold_text_lower{ font-size: 17px!important; position: absolute; top: 30%!important; left: 20%!important; color: orange!important; }
+.car_form .content_adjusting_wrapper div label{font-size: 15px!important;}
+.car_form .content_adjusting_wrapper div select{width: 100px!important;height: 40px!important; font-size: 10px!important;}
+.car_form .content_adjusting_wrapper div input{width: 100px!important;height: 40px!important;font-size: 10px!important;}
+.car_form_and_prediction_space
+{
+  width: 100%!important;
+  
+}
+.content_adjusting_wrapper
+{
+  display: grid;
+  grid-template-columns: 130px 130px!important;
+  grid-column-gap: 0px!important;
+}
+
+.car_form button{ width: 90px!important; font-size: 10px!important; margin-left: 20px!important; height: 40px!important}
+.predict{height: 50px!important;  margin-left:0px; width: 40px!important; }
+      .predict_heading {display: flex; justify-content: center;flex-direction: column; margin-left: 0px!important;}
+      .predict_heading p{font-size: 10px!important; }
+      .show_button{background-color: transparent;border: none; font-size: 10px!important; cursor: pointer; color: green;display: none;}
+
+}
+  *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a,a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  display: inline-block;
+}
+
+#header{
+  width: 100%;
+  min-height: 150vh;
+  background: #26284e;
+  background-image: url({% static 'img/homepagepng/bg.png'%});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+#header .nav-bar{
+  width: 100%;
+  height: 80px;
+  margin: auto;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 80px;
+}
+
+#header .nav-bar .logo{
+  margin-left: 50px;
+}
+
+#header .nav-bar .logo a{
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+#header .nav-bar .logo span{
+  font-size: 35px;
+  color: #d43242;
+  margin-left: 5px;
+}
+
+#header .nav-bar .menu ul li{
+  margin-right: 30px;
+}
+
+#header .nav-bar .menu ul li a{
+  font-size: 19px;
+  opacity: 0.6;
+  letter-spacing: 2px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  transition: all 0.5s;
+}
+
+#header .nav-bar .menu ul li a.active{
+  opacity: 1;
+}
+
+#header .nav-bar .menu ul li span{
+  position: absolute;
+  top: 0px;
+  color: #d43242;
+  font-size: 75px;
+}
+
+#header .nav-bar .menu ul li a:hover{
+  opacity: 1;
+}
+.container
+{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+/* inside main banner css*/
+
+
+.bold_text_upper
+{ 
+  position: absolute;
+  color: white;
+  font-size: 25px; 
+  font-weight: 600;
+  margin-bottom: 30px;
+  top: 25%;
+  left: 28%;
+  font-family: 'Bebas Neue', sans-serif;
+
+
+}
+.bold_text_lower
+{
+  position: absolute;
+   color: white;
+   font-size: 60px;
+   font-weight: 600;
+   top: 32%;
+  left: 16%;
+  font-family: 'Bebas Neue', sans-serif;
+}
+.car_form_and_prediction_space
+{
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  
+}
+.car_form
+{
+  
+  font-family: 'Raleway', sans-serif;
+  
+  
+
+}
+.car_form label
+{
+  font-size: 26px;
+  color: #f8d486;
+}
+.car_form select
+{
+  height: 45px; width: 180px;
+  margin-left: 20px;
+  background-color: transparent;
+  color: #828d82;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.content_adjusting_wrapper
+{
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-column-gap: 200px;
+}
+.content_adjusting_wrapper button
+{
+  height: 45px;
+  width: 180px;
+  background-color: transparent;
+  position: absolute;
+  top: 100%;
+  left: 31%;
+  font-size: 30px;
+    color: white;
+    border: 1px solid #828d82;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s ease;
+
+}
+.content_adjusting_wrapper button:hover
+{
+  background-color: #26284e;
+  
+
+}
+.predict{min-height: 100px;  margin-left:0px; width: 480px; }
+      .predict_heading {display: flex; justify-content: center;flex-direction: column; margin-left: 30px;}
+      .predict_heading p{font-size: 30px; }
+      .show_button{background-color: transparent;border: none; font-size: 30px; cursor: pointer; color: green;display: none;}
+.km_driven input
+{
+  height: 50px; width: 200px;
+  margin-left: 20px;
+  background-color: transparent;
+  color: green;
+  font-size: 20px;
+
+}
+
+
+/*end main banner css*/
+.extra
+{
+  background-color: #efefef;
+  min-height: 200px;
+  width: 1000px;
+}
+
+.history div{height: 49px; width: 250px; position: absolute; top: 40%; left: 80%; text-align: center;margin-top: 2px; cursor: pointer; background-color: transparent; font-size: 30px; color: white;border: 1px solid grey;cursor: pointer;border-radius: 5px;transition: 0.5s ease;padding-top: 5px;}
+.history div:hover{background-color: #02b5c7;}
+.show_button{color: #00ff40}
+#success{margin-left: 30px; color: #f2b410; font-size: 60px; font-weight: 900;}
+#prediction{margin-left:15px;}
+.demo-4 .wrapper {
+  /* Size and position */
+  font-size: 25px; /* 1em */
+    width: 9em;
+  height: 9em;
+    margin: 100px auto;
+    position: relative;
+
+    /* Styles */
+  border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1em dashed rgba(138,189,195,0.5);
+    box-shadow: 
+        inset 0 0 2em rgba(255,255,255,0.3),
+        0 0 0 0.7em rgba(255,255,255,0.3);
+    animation: rota 3.5s linear infinite;
+
+    /* Font styles */
+    font-family: 'Racing Sans One', sans-serif;
+    
+    color: #444;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 .04em rgba(255,255,255,0.9);
+    line-height: 7em;
+}
+.demo-4 .wrapper:before,
+.demo-4 .wrapper:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: inset 0 0 2em rgba(255,255,255,0.3);
+    border: 1em dashed;
+}
+
+.demo-4 .wrapper:before {
+  border-color: rgba(138,189,195,0.2);
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.demo-4 .wrapper:after {
+  border-color: rgba(138,189,195,0.4);
+    top: 1em; right: 1em; bottom: 1em; left: 1em; 
+}
+.demo-4 .wrapper .inner {
+    width: 100%;
+    height: 100%;
+    animation: rota 3.5s linear reverse infinite;
+}
+
+.demo-4 .wrapper span {
+    display: inline-block;
+    animation: placeholder 1.5s ease-out infinite;
+}
+
+.demo-4 .wrapper span:nth-child(1)  { fanimation-name: loading-1;  }
+.demo-4 .wrapper span:nth-child(2)  { animation-name: loading-2;  }
+.demo-4 .wrapper span:nth-child(3)  { animation-name: loading-3;  }
+.demo-4 .wrapper span:nth-child(4)  { animation-name: loading-4;  }
+.demo-4 .wrapper span:nth-child(5)  { animation-name: loading-5;  }
+.demo-4 .wrapper span:nth-child(6)  { animation-name: loading-6;  }
+.demo-4 .wrapper span:nth-child(7)  { animation-name: loading-7;  }
+@keyframes rota {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes loading-1 {
+    14.28% { opacity: 0.3; }
+}
+
+@keyframes loading-2 {
+    28.57% { opacity: 0.3; }
+}
+
+@keyframes loading-3 {
+    42.86% { opacity: 0.3; }
+}
+
+@keyframes loading-4 {
+    57.14% { opacity: 0.3; }
+}
+
+@keyframes loading-5 {
+    71.43% { opacity: 0.3; }
+}
+
+@keyframes loading-6 {
+    85.71% { opacity: 0.3; }
+}
+
+@keyframes loading-7 {
+    100% { opacity: 0.3; }
+}
+
+</style>
+
+<body>
+  <section id="header" class="header">
+    <div class="nav-bar">
+      
+      <div class="menu">
+        <ul>
+          <li><a href="homepage">Home</a></li>
+          <li><a href="history" >History</a></li>
+          <li><a href="goprediction" class="active">Predict<span>.</span></a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="team">Team</a></li>
+        </ul>
+      </div>
+     </div>
+
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <div class="bold_text_upper">ITS EASY TO PREDICT YOUR NEXT CAR PRICE</div>
+      <div class="bold_text_lower">CHOOSE YOUR CAR AND GO!</div>
+     <div class="car_form_and_prediction_space">
+             <div class="car_form">
+                   <form class="content_adjusting_wrapper" method="post" id="form">{% csrf_token %}
+                         <div class="brand_class">
+                        <label for="brand">Brand</label>
+                           <select name="brand" id="brand" onchange="func()" required="1">
+                             {% for i in bb %}
+                               <option value="{{i}}" id="bb">{{i}}</option>
+                             {% endfor %}
+                            </select>
+                    </div>       
+
+                     <div class="model_class">
+                       <label for="model">Model</label>
+                            <select name="car_model" id="car_model" name="car_model" required="1">
+                            </select>
+                      </div>
+                           <!--  end of 1st row data  -->
+
+                          <!--  starting of second row -->
+                        <div class="model_year_class">
+                            <label for="model_year" style="">model year</label>
+                           <select id="model_year" name="model_year" required="1">
+                           <script type="text/javascript">
+                            var count=2000;
+                            while(count<2026)
+                            {
+                              document.write("<option>"+count+"</option>")
+                              count++
+                            }
+                          </script>
+
+                           </select>
+                        </div>
+
+                        <div class="transmission_class">
+                        <label for="transmission">Transmission</label>
+                        <select id="transmission" name="transmission" required="1">
+                          {% for i in Transmission %}
+                               <option value="{{i}}" id="bb">{{i}}</option>
+                             {% endfor %}
+                        </select>
+                        </div>
+                       <!--  end of second row -->
+
+
+                     <!--    start of third row -->
+                        <div class="brand_class">
+                        <label for="drivetrain">DRIVETRAIN</label>
+                        <select id="drivetrain" name="drivetrain" required="1">
+                          {% for i in Drivetrain %}
+                               <option value="{{i}}" id="bb">{{i}}</option>
+                             {% endfor %}
+                        </select>
+                        </div>   
+
+                        <div class="fueltype_class">
+                        <label for="fueltype">fueltype</label>
+                         <select id="fueltype" name="fueltype" required="1">
+                          {% for i in Fuel_type %}
+                               <option value="{{i}}" id="bb">{{i}}</option>
+                             {% endfor %}
+                        </select>
+                        </div>
+
+                        <div class="km_driven">
+                        <label for="km_driven">KM driven</label>
+                          <input type="text" id="km_driven" name="km_driven" required="1" style=" border-radius: 10px;width: 180px;height: 45px; border:1px solid #828d82; " placeholder="KM driven"><br>
+                        </div>
+
+                          <div class="Engine_size_class">
+                        <label for="Engine_size">Engine_size</label>
+                         <select id="Engine_size" name="Engine_size" required="1">
+                          {% for i in Engine_size %}
+                               <option value="{{i}}" id="bb">{{i}}</option>
+                             {% endfor %}
+                        </select>
+                        </div>
+                        
+                          <div class="Lot_no_class">
+                        <label for="Lot_no" required="1">Lot_no</label>
+                         <select id="Lot_no" name="Lot_no">
+                          {% for i in Lot_no %}
+                               <option value="{{i}}" id="bb"> {{i}}</option>
+                             {% endfor %}
+                        </select>
+                        </div>
+                       <!-- end of third row -->
+                        
+                     
+                     <button type="submit" onclick="send_data()">predict</button> 
+
+                </form> 
+      </div>
+      <div class="predict">
+        <div class="predict_heading">
+          <p><div id="wait" style="display: none;">
+            <div class="demo-4">
+             <div class="wrapper">
+    <div class="inner">
+        <span>L</span>
+        <span>O</span>
+        <span>A</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+    </div>
+</div>
+</div>
+          </div>
+            <br>
+            <span id="prediction"></span>
+
+            <span id="success"></span>
+            <span id="next_prediction"></span>
+          </p>
+          <button class="show_button" id="show_button" onclick="showprice()">click here to reveal price</button>
+        </div>
+          <div class="price_display" id="price_display" style="margin-left: 20px;"></div>
+    </div>
+ </div>
+  </section>
+ </body>
+    
+<script type="text/javascript">
+
+
+  function send_data()
+{
+
+  /*supress form behaviour*/
+  var form=document.getElementById('form')
+  form.addEventListener('submit',function(event){
+    event.preventDefault()
+  })
+  
+  
+  var brand=document.getElementById('brand').value;
+  var car_model=document.getElementById('car_model').value;
+  var transmission=document.getElementById('transmission').value;
+  var model_year=document.getElementById('model_year').value;
+  var drivetrain=document.getElementById('drivetrain').value;
+  var fueltype=document.getElementById('fueltype').value;
+  var km_driven=document.getElementById('km_driven').value;
+  var Engine_size=document.getElementById('Engine_size').value;
+  var Lot_no=document.getElementById('Lot_no').value;
+
+  var url='/save_car?brand='+brand+'&car_model='+car_model+'&transmission='+transmission+'&model_year='+model_year+'&drivetrain='+drivetrain+'&fueltype='+fueltype+'&km_driven='+km_driven+'&Engine_size='+Engine_size+'&Lot_no='+Lot_no;
+
+  var req = new XMLHttpRequest();
+  req.open("GET", url, true);
+  req.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+     var wait=document.getElementById('wait');
+     var count=0;
+     var anima1=setInterval(interval,500);
+     function interval(){
+        count++;
+        if (count==14) {
+          stop()
+         
+
+        }
+        else if(count>14)
+        {
+          clearInterval(anima1);
+          showprice();
+          wait.style.display='none';
+
+        }
+        else{wait.style.display='block';}
+      }
+     var click_here=document.getElementById('show_button')
+     document.getElementById('prediction').style.color='white';
+
+     document.getElementById('prediction').style.fontSize='35px';
+     document.getElementById('prediction').style.fontWeight='600';
+     document.getElementById('next_prediction').style.fontSize='35px';
+     document.getElementById('next_prediction').style.fontWeight='600';
+     document.getElementById('price_display').style.display='none';
+     document.getElementById('success').style.display='none';
+    }
+  };
+  
+  req.send();
+}
+
+function showprice()
+{
+  var price_btn_supress=document.getElementById('show_button')
+  price_btn_supress.addEventListener('click',function(event){
+    event.preventDefault()
+  })
+  var url='/getalldata'
+  var req = new XMLHttpRequest();
+  req.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      function stop(){
+      var wait=document.getElementById('wait');
+      wait.style.display='none';
+
+    }
+      
+      document.getElementById('wait').style.display='none';
+     /*alert(req.responseText)*/ 
+     document.getElementById('success').innerHTML="SUCCESS!!";
+     
+     var data= eval(req.responseText);
+     var data_length= data.length;
+     data_length--;
+     var div= document.getElementById('price_display');
+     div.innerHTML="";
+     var div_main1 = document.createElement("DIV");
+     var div_main2 = document.createElement("DIV");
+     var appdiv1=div.appendChild(div_main1);
+     var appdiv2=div.appendChild(div_main2);
+     console.log(appdiv1);
+
+
+
+     var div1 = document.createElement("DIV");
+     div1.className='div1'
+     var div1o1 = document.createElement("DIV");
+     var t = document.createTextNode("BRAND:");
+     div1o1.appendChild(t);
+     div1o1.className='div1o1'
+     var div1o2 = document.createElement("DIV");
+     div1o2.innerHTML=data[data_length].brand;
+     div1o2.className='div1o1'
+     div1.appendChild(div1o1);
+     div1.appendChild(div1o2);
+     div_main1.appendChild(div1);
+
+     var div2 = document.createElement("DIV");
+     div1.className='div2'
+     var div2o1 = document.createElement("DIV");
+     var t = document.createTextNode("CAR MODEL:");
+     div2o1.appendChild(t);
+     div2o1.className='div2o1'
+     var div2o2 = document.createElement("DIV");
+     div2o2.innerHTML=data[data_length].model;
+     div2o2.className='div2o2'
+     div2.appendChild(div2o1);
+     div2.appendChild(div2o2);
+     div_main1.appendChild(div2);
+     div2.className='div2'
+
+     var div3 = document.createElement("DIV");
+     var div3o1 = document.createElement("DIV");
+     var t = document.createTextNode("MODEL YEAR:");
+     div3o1.appendChild(t);
+     div3o1.className='div3o1'
+     var div3o2 = document.createElement("DIV");
+     div3o2.innerHTML=data[data_length].model_year;
+     div3o2.className='div3o2'
+     div3.appendChild(div3o1);
+     div3.appendChild(div3o2);
+     div_main1.appendChild(div3);
+
+     var div4 = document.createElement("DIV");
+     var div4o1 = document.createElement("DIV");
+     var t = document.createTextNode("Transmission:");
+     div4o1.appendChild(t);
+     div4o1.className='div4o1'
+     var div4o2 = document.createElement("DIV");
+     div4o2.innerHTML=data[data_length].Transmission;
+     div4o2.className='div4o2'
+     div4.appendChild(div4o1);
+     div4.appendChild(div4o2);
+     div_main1.appendChild(div4);
+
+      var div5 = document.createElement("DIV");
+     var div5o1 = document.createElement("DIV");
+     var t = document.createTextNode("Fuel_type:");
+     div5o1.appendChild(t);
+     div5o1.className='div4o1'
+     var div5o2 = document.createElement("DIV");
+     div5o2.innerHTML=data[data_length].Fuel_type;
+     div5o2.className='div5o2'
+     div5.appendChild(div5o1);
+     div5.appendChild(div5o2);
+     div_main1.appendChild(div5);
+    
+
+     var div6 = document.createElement("DIV");
+     var div6o1 = document.createElement("DIV");
+     var t = document.createTextNode("Drivetrain:");
+     div6o1.appendChild(t);
+     div6o1.className='div6o1'
+     var div6o2 = document.createElement("DIV");
+     div6o2.innerHTML=data[data_length].Drivetrain+"WD";
+     div6o2.className='div6o2'
+     div6.appendChild(div6o1);
+     div6.appendChild(div6o2);
+     div_main2.appendChild(div6);
+
+      var div7 = document.createElement("DIV");
+     var div7o1 = document.createElement("DIV");
+     var t = document.createTextNode("Kilometer:");
+     div7o1.appendChild(t);
+     div7o1.className='div7o1'
+     var div7o2 = document.createElement("DIV");
+     div7o2.innerHTML=data[data_length].Kilometer+"KM";
+     div7o2.className='div7o2'
+     div7.appendChild(div7o1);
+     div7.appendChild(div7o2);
+     div_main2.appendChild(div7);
+
+     var div8 = document.createElement("DIV");
+     var div8o1 = document.createElement("DIV");
+     var t = document.createTextNode("Engine_size:");
+     div8o1.appendChild(t);
+     div8o1.className='div8o1'
+     var div8o2 = document.createElement("DIV");
+     div8o2.innerHTML=data[data_length].Engine_size+"CC";
+     div8o2.className='div8o2';
+     div8.appendChild(div8o1);
+     div8.appendChild(div8o2);
+     div_main2.appendChild(div8);
+
+      var div9 = document.createElement("DIV");
+     var div9o1 = document.createElement("DIV");
+     var t = document.createTextNode("Lot_no:");
+     div9o1.appendChild(t);
+     div9o1.className='div9o1'
+     var div9o2 = document.createElement("DIV");
+     div9o2.innerHTML=data[data_length].Lot_no;
+     div9o2.className='div9o2'
+     div9.appendChild(div9o1);
+     div9.appendChild(div9o2);
+     div_main2.appendChild(div9);
+     
+     var div10 = document.createElement("DIV");
+     var div10o1 = document.createElement("DIV");
+     var t = document.createTextNode("PREDICTED PRICE:");
+     div10o1.appendChild(t);
+     div10o1.className='div10o1'
+     var div10o2 = document.createElement("DIV");
+     div10o2.innerHTML="Rs."+data[data_length].Price;
+     div10o2.className='div10o2'
+     div10.appendChild(div10o1);
+     div10.appendChild(div10o2);
+     div_main2.appendChild(div10);
+    
+     console.log(div)
+     if (data[data_length].Price>100000){
+     swal("success", "The suitable price as per the prediction is Rs. "+data[data_length].Price, "success");
+     document.getElementById('price_display').style.display='none';
+     document.getElementById('success').style.display='none';
+   }
+     if (data[data_length].Price<100000) {
+      swal("Error", "Result not found! enter valid data", "error");
+      document.getElementById('price_display').style.display='none';
+     document.getElementById('success').style.display='none';}
+     /*styling part*/
+     document.getElementById('show_button').style.display='none';
+     document.getElementById('prediction').innerHTML="";
+     document.getElementById('next_prediction').innerHTML="";
+     div1.setAttribute("style", "display:flex;margin-left:10px;");
+     div1o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div1o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div2.setAttribute("style", "display:flex;margin-left:10px;");
+     div2o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div2o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div3.setAttribute("style", "display:flex;margin-left:10px;");
+     div3o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div3o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div4.setAttribute("style", "display:flex;margin-left:10px;");
+     div4o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div4o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div5.setAttribute("style", "display:flex;margin-left:10px;");
+     div5o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div5o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div6.setAttribute("style", "display:flex;margin-left:10px;");
+     div6o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div6o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div7.setAttribute("style", "display:flex;margin-left:10px;");
+     div7o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div7o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div8.setAttribute("style", "display:flex;margin-left:10px;");
+     div8o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div8o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div9.setAttribute("style", "display:flex;margin-left:10px;");
+     div9o1.setAttribute("style", "color: #64d5aa; font-Size:30px;");
+     div9o2.setAttribute("style", "color: white; font-Size:25px; margin-left:20px;");
+     div10.setAttribute("style", "display:flex;margin-left:10px;");
+     div10o1.setAttribute("style", "color: #86ee0f; font-Size:40px;");
+     div10o2.setAttribute("style", "color:  #f2b410; font-Size:30px; margin-left:20px;");
+     /*table.style.border="2px solid green";
+     /*table.style.border="2px solid green";
+     row.style.backgroundColor='skyblue';
+     row.style.fontSize='20px';*/
+
+
+
+    }
+  };
+  req.open("GET", url, true);
+  req.send();
+
+}
+
+
+
+function func(){
+  var brand = $("#brand option:selected").html();
+  console.log(brand);
+  console.log(typeof brand);
+  var car_model=document.getElementById('car_model');
+  console.log(car_model);
+  
+ car_model.value='';
+ car_model.innerHTML='';
+  if (brand==="Chevrolet")
+   {
+    {% for i in Chevrolet_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+
+  if (brand==="Fiat")
+   {
+    {% for i in Fiat_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Ford")
+   {
+    {% for i in Ford_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Honda")
+   {
+    {% for i in Honda_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Hyundai")
+   {
+    {% for i in Honda_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Kia")
+   {
+    {% for i in kia_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+    if (brand==="Land Rover")
+   {
+    {% for i in Land_Rover_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+    if (brand==="Mahindra")
+   {
+    {% for i in Mahindra_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+    if (brand==="Maruti Suzuki")
+   {
+    {% for i in Maruti_Suzuki_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Nissan")
+   {
+    {% for i in Nissan_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+    if (brand==="Skoda")
+   {
+    {% for i in Skoda_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+    if (brand==="Tata")
+   {
+    {% for i in Tata_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+   if (brand==="Toyota")
+   {
+    {% for i in Toyota_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+      
+      if (brand==="Volkswagen")
+   {
+    {% for i in Volkswagen_model_unique %}
+     var newoption=document.createElement("option");
+     console.log(newoption)
+     newoption.value= "{{i}}";
+
+     newoption.innerHTML="{{i}}";
+     car_model.options.add(newoption);
+     
+
+    {% endfor %}
+   }
+  }
+
+</script>
+ </html>

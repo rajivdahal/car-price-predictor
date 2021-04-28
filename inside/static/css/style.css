@@ -1,0 +1,214 @@
+*
+{
+	margin: 0;{% static 'css/style.css'%}
+	{% load static %}
+	padding: 0;
+	box-sizing: border-box;
+    
+}
+.dummy{ display:flex; justify-content:centers; font-size:40px; color:white;}
+a
+{
+	text-decoration: none;
+}
+.container
+{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+/* inside main banner css*/
+#banner
+{   
+	
+	background: url(../img/tesla_banner.jpg);
+	width: 100%;
+	height: 1200px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: relative;
+
+	
+}
+#banner::before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+ 
+}
+
+.down_arrow
+{
+	position: absolute;
+	border:2px solid #02b5c7;
+	border-radius: 2px;
+	padding: 18px 20px ;
+	color: white;
+	top: 10%;
+	left: 48%;
+	transition: 0.5s;
+	cursor: pointer;
+
+	
+}
+.down_arrow:hover
+{
+	background-color: #02b5c7;
+}
+.bold_text_upper
+{ 
+	position: absolute;
+	color: white;
+	font-size: 26px; 
+	font-weight: 600;
+	margin-bottom: 30px;
+	top: 35%;
+	left: 28%;
+	font-family: 'Bebas Neue', sans-serif;
+
+
+}
+.bold_text_lower
+{
+	position: absolute;
+   color: white;
+   font-size: 70px;
+   font-weight: 600;
+   top: 42%;
+	left: 16%;
+	font-family: 'Bebas Neue', sans-serif;
+}
+.car_form
+{
+	position: absolute;
+	top: 60%;
+	left: 25%;
+	font-family: 'Raleway', sans-serif;
+	
+	
+
+}
+.car_form label
+{
+	font-size: 30px;
+	color: white;
+}
+.car_form select
+{
+	height: 50px; width: 200px;
+	margin-left: 20px;
+	background-color: transparent;
+	color: green;
+	font-size: 20px;
+}
+.content_adjusting_wrapper
+{
+	display: grid;
+	grid-template-columns: 300px 300px;
+	grid-column-gap: 200px;
+}
+.content_adjusting_wrapper button
+{
+	height: 49px;
+	width: 250px;
+	background-color: transparent;
+	position: absolute;
+	top: 120%;
+	left: 31%;
+	border:none;
+	font-size: 30px;
+    color: white;
+    border: 1px solid grey;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.5s ease;
+
+}
+.content_adjusting_wrapper button:hover
+{
+	background-color: #02b5c7;
+	
+
+}
+.km_driven input
+{
+	height: 50px; width: 200px;
+	margin-left: 20px;
+	background-color: transparent;
+	color: green;
+	font-size: 20px;
+
+}
+
+
+/*end main banner css*/
+
+/*start navbar css*/
+#navbar_container
+{
+	display: grid;
+	grid-template-columns: 20% 80%;
+	font-family: 'Montserrat', sans-serif;
+
+
+
+}
+.brand
+{
+	display: flex;
+	background-color: #ED0977;
+	font-size: 40px;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	color: white;
+	letter-spacing: 8px;
+	font-weight: 900;
+	
+}
+.navbar
+{
+	display: flex;
+	padding-left: 30px;
+	background-color: #02B5C7;
+	justify-content: flex-end;
+	align-items:center;
+	height:82px;
+
+
+}
+.navbar div
+{
+	
+	font-size: 20px;
+	color: white;
+	padding: 29px 20px;
+	font-weight: 600;
+}
+.navbar div:hover
+{
+	background-color:#ED0977;
+
+
+}
+.extra
+{
+	background-color: #efefef;
+	min-height: 200px;
+	width: 1000px;
+}
+
+
+
+/*end navbarcss*/
+
